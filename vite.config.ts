@@ -9,12 +9,18 @@ server: {
       target: 'http://localhost:8000',
       changeOrigin: true,
       secure: false,
-      //^/(education|work|users|portfolio)
+      
         
   },
 
 },
 }, 
+  
   plugins: [react(),tailwindcss()],
+  base: '/frontend',
+  build: {
+    outDir: 'dist',
+    emptyOutDir: true
+  }
   
 });
