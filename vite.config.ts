@@ -5,10 +5,11 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
 server: {
   proxy:{
-    '/api/api': {
-      target: 'http://localhost:8000',
+    '/api': {
+      target: 'https://squid-app-qgori.ondigitalocean.app/',
       changeOrigin: true,
       secure: false,
+      rewrite: (path) => path.replace(/^\/api/, ''),
       
         
   },
@@ -17,7 +18,7 @@ server: {
 }, 
   
   plugins: [react(),tailwindcss()],
-  base: '/frontend',
+  base: '/',
   build: {
     outDir: 'dist',
     emptyOutDir: true
